@@ -1,5 +1,7 @@
-<html lang="en"><head>
-    <title>Code coverage report for node-npmtest-grunt-contrib-concat/grunt-contrib-concat/tasks/concat.js</title>
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-grunt-contrib-concat/node_modules/grunt-contrib-concat/tasks/concat.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -192,7 +194,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-grunt-contrib-concat">npmtest-grunt-contrib-concat (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-grunt-contrib-concat/grunt-contrib-concat/tasks/concat.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-grunt-contrib-concat/node_modules/grunt-contrib-concat/tasks/concat.js</span></h1>
     <h2>
         
         Statements: <span class="metric">2.13% <small>(1 / 47)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -208,11 +210,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../index.html">All files</a> » <a href="index.html">node-npmtest-grunt-contrib-concat/grunt-contrib-concat/tasks/</a> » concat.js</div>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-grunt-contrib-concat/node_modules/grunt-contrib-concat/tasks/</a> &#187; concat.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tbody><tr><td class="line-count">1
+<tr><td class="line-count">1
 2
 3
 4
@@ -466,16 +468,16 @@
 &nbsp;
 'use strict';
 &nbsp;
-module.exports = <span class="fstat-no" title="function not covered">function(grunt) {</span>
+module.exports = <span class="fstat-no" title="function not covered" >function(grunt) {</span>
 &nbsp;
   // Internal lib.
-<span class="cstat-no" title="statement not covered">  var comment = require('./lib/comment').init(grunt);</span>
-<span class="cstat-no" title="statement not covered">  var chalk = require('chalk');</span>
-<span class="cstat-no" title="statement not covered">  var sourcemap = require('./lib/sourcemap').init(grunt);</span>
+<span class="cstat-no" title="statement not covered" >  var comment = require('./lib/comment').init(grunt);</span>
+<span class="cstat-no" title="statement not covered" >  var chalk = require('chalk');</span>
+<span class="cstat-no" title="statement not covered" >  var sourcemap = require('./lib/sourcemap').init(grunt);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  grunt.registerMultiTask('concat', 'Concatenate files.', <span class="fstat-no" title="function not covered">function() {</span></span>
+<span class="cstat-no" title="statement not covered" >  grunt.registerMultiTask('concat', 'Concatenate files.', <span class="fstat-no" title="function not covered" >function() {</span></span>
     // Merge task-specific and/or target-specific options with these defaults.
-<span class="cstat-no" title="statement not covered">    var options = this.options({</span>
+<span class="cstat-no" title="statement not covered" >    var options = this.options({</span>
       separator: grunt.util.linefeed,
       banner: '',
       footer: '',
@@ -487,103 +489,102 @@ module.exports = <span class="fstat-no" title="function not covered">function(gr
     });
 &nbsp;
     // Normalize boolean options that accept options objects.
-<span class="cstat-no" title="statement not covered">    if (options.stripBanners === true) {</span>
-<span class="cstat-no" title="statement not covered">      options.stripBanners = {};</span>
+<span class="cstat-no" title="statement not covered" >    if (options.stripBanners === true) {</span>
+<span class="cstat-no" title="statement not covered" >      options.stripBanners = {};</span>
     }
-<span class="cstat-no" title="statement not covered">    if (options.process === true) {</span>
-<span class="cstat-no" title="statement not covered">      options.process = {};</span>
+<span class="cstat-no" title="statement not covered" >    if (options.process === true) {</span>
+<span class="cstat-no" title="statement not covered" >      options.process = {};</span>
     }
 &nbsp;
     // Process banner and footer.
-<span class="cstat-no" title="statement not covered">    var banner = grunt.template.process(options.banner);</span>
-<span class="cstat-no" title="statement not covered">    var footer = grunt.template.process(options.footer);</span>
+<span class="cstat-no" title="statement not covered" >    var banner = grunt.template.process(options.banner);</span>
+<span class="cstat-no" title="statement not covered" >    var footer = grunt.template.process(options.footer);</span>
 &nbsp;
     // Set a local variable for whether to build source maps or not.
-<span class="cstat-no" title="statement not covered">    var sourceMap = options.sourceMap;</span>
+<span class="cstat-no" title="statement not covered" >    var sourceMap = options.sourceMap;</span>
 &nbsp;
     // If content is not embedded and it will be modified, either exit or do
     // not make the source map.
-<span class="cstat-no" title="statement not covered">    if (</span>
+<span class="cstat-no" title="statement not covered" >    if (</span>
       sourceMap &amp;&amp; options.sourceMapStyle === 'link' &amp;&amp;
         (options.stripBanners || options.process)
     ) {
       // Warn and exit if --force isn't set.
-<span class="cstat-no" title="statement not covered">      grunt.warn(</span>
+<span class="cstat-no" title="statement not covered" >      grunt.warn(</span>
         'stripBanners or process option is enabled. ' +
         'Set sourceMapStyle option to \'embed\' or \'inline\'.'
       );
       // --force is set, continue on without the source map.
-<span class="cstat-no" title="statement not covered">      grunt.log.warn('Skipping creation of source maps.');</span>
+<span class="cstat-no" title="statement not covered" >      grunt.log.warn('Skipping creation of source maps.');</span>
       // Set sourceMap to false to keep maps from being constructed.
-<span class="cstat-no" title="statement not covered">      sourceMap = false;</span>
+<span class="cstat-no" title="statement not covered" >      sourceMap = false;</span>
     }
 &nbsp;
     // Iterate over all src-dest file pairs.
-<span class="cstat-no" title="statement not covered">    this.files.forEach(<span class="fstat-no" title="function not covered">function(f) {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.files.forEach(<span class="fstat-no" title="function not covered" >function(f) {</span></span>
       // Initialize source map objects.
-<span class="cstat-no" title="statement not covered">      var sourceMapHelper;</span>
-<span class="cstat-no" title="statement not covered">      if (sourceMap) {</span>
-<span class="cstat-no" title="statement not covered">        sourceMapHelper = sourcemap.helper(f, options);</span>
-<span class="cstat-no" title="statement not covered">        sourceMapHelper.add(banner);</span>
+<span class="cstat-no" title="statement not covered" >      var sourceMapHelper;</span>
+<span class="cstat-no" title="statement not covered" >      if (sourceMap) {</span>
+<span class="cstat-no" title="statement not covered" >        sourceMapHelper = sourcemap.helper(f, options);</span>
+<span class="cstat-no" title="statement not covered" >        sourceMapHelper.add(banner);</span>
       }
 &nbsp;
       // Concat banner + specified files + footer.
-<span class="cstat-no" title="statement not covered">      var src = banner + f.src.filter(<span class="fstat-no" title="function not covered">function(filepath) {</span></span>
+<span class="cstat-no" title="statement not covered" >      var src = banner + f.src.filter(<span class="fstat-no" title="function not covered" >function(filepath) {</span></span>
         // Warn on and remove invalid source files (if nonull was set).
-<span class="cstat-no" title="statement not covered">        if (!grunt.file.exists(filepath)) {</span>
-<span class="cstat-no" title="statement not covered">          grunt.log.warn('Source file "' + filepath + '" not found.');</span>
-<span class="cstat-no" title="statement not covered">          return false;</span>
+<span class="cstat-no" title="statement not covered" >        if (!grunt.file.exists(filepath)) {</span>
+<span class="cstat-no" title="statement not covered" >          grunt.log.warn('Source file "' + filepath + '" not found.');</span>
+<span class="cstat-no" title="statement not covered" >          return false;</span>
         }
-<span class="cstat-no" title="statement not covered">        return true;</span>
-      }).map(<span class="fstat-no" title="function not covered">function(filepath, i) {</span>
-<span class="cstat-no" title="statement not covered">        if (grunt.file.isDir(filepath)) {</span>
-<span class="cstat-no" title="statement not covered">          return;</span>
+<span class="cstat-no" title="statement not covered" >        return true;</span>
+      }).map(<span class="fstat-no" title="function not covered" >function(filepath, i) {</span>
+<span class="cstat-no" title="statement not covered" >        if (grunt.file.isDir(filepath)) {</span>
+<span class="cstat-no" title="statement not covered" >          return;</span>
         }
         // Read file source.
-<span class="cstat-no" title="statement not covered">        var src = grunt.file.read(filepath);</span>
+<span class="cstat-no" title="statement not covered" >        var src = grunt.file.read(filepath);</span>
         // Process files as templates if requested.
-<span class="cstat-no" title="statement not covered">        if (typeof options.process === 'function') {</span>
-<span class="cstat-no" title="statement not covered">          src = options.process(src, filepath);</span>
-        } else <span class="cstat-no" title="statement not covered">if (options.process) {</span>
-<span class="cstat-no" title="statement not covered">          src = grunt.template.process(src, options.process);</span>
+<span class="cstat-no" title="statement not covered" >        if (typeof options.process === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >          src = options.process(src, filepath);</span>
+        } else <span class="cstat-no" title="statement not covered" >if (options.process) {</span>
+<span class="cstat-no" title="statement not covered" >          src = grunt.template.process(src, options.process);</span>
         }
         // Strip banners if requested.
-<span class="cstat-no" title="statement not covered">        if (options.stripBanners) {</span>
-<span class="cstat-no" title="statement not covered">          src = comment.stripBanner(src, options.stripBanners);</span>
+<span class="cstat-no" title="statement not covered" >        if (options.stripBanners) {</span>
+<span class="cstat-no" title="statement not covered" >          src = comment.stripBanner(src, options.stripBanners);</span>
         }
         // Add the lines of this file to our map.
-<span class="cstat-no" title="statement not covered">        if (sourceMapHelper) {</span>
-<span class="cstat-no" title="statement not covered">          src = sourceMapHelper.addlines(src, filepath);</span>
-<span class="cstat-no" title="statement not covered">          if (i &lt; f.src.length - 1) {</span>
-<span class="cstat-no" title="statement not covered">            sourceMapHelper.add(options.separator);</span>
+<span class="cstat-no" title="statement not covered" >        if (sourceMapHelper) {</span>
+<span class="cstat-no" title="statement not covered" >          src = sourceMapHelper.addlines(src, filepath);</span>
+<span class="cstat-no" title="statement not covered" >          if (i &lt; f.src.length - 1) {</span>
+<span class="cstat-no" title="statement not covered" >            sourceMapHelper.add(options.separator);</span>
           }
         }
-<span class="cstat-no" title="statement not covered">        return src;</span>
+<span class="cstat-no" title="statement not covered" >        return src;</span>
       }).join(options.separator) + footer;
 &nbsp;
-<span class="cstat-no" title="statement not covered">      if (sourceMapHelper) {</span>
-<span class="cstat-no" title="statement not covered">        sourceMapHelper.add(footer);</span>
-<span class="cstat-no" title="statement not covered">        sourceMapHelper.write();</span>
+<span class="cstat-no" title="statement not covered" >      if (sourceMapHelper) {</span>
+<span class="cstat-no" title="statement not covered" >        sourceMapHelper.add(footer);</span>
+<span class="cstat-no" title="statement not covered" >        sourceMapHelper.write();</span>
         // Add sourceMappingURL to the end.
-<span class="cstat-no" title="statement not covered">        src += sourceMapHelper.url();</span>
+<span class="cstat-no" title="statement not covered" >        src += sourceMapHelper.url();</span>
       }
 &nbsp;
       // Write the destination file.
-<span class="cstat-no" title="statement not covered">      grunt.file.write(f.dest, src);</span>
+<span class="cstat-no" title="statement not covered" >      grunt.file.write(f.dest, src);</span>
 &nbsp;
       // Print a success message.
-<span class="cstat-no" title="statement not covered">      grunt.verbose.write('File ' + chalk.cyan(f.dest) + ' created.');</span>
+<span class="cstat-no" title="statement not covered" >      grunt.verbose.write('File ' + chalk.cyan(f.dest) + ' created.');</span>
     });
   });
 &nbsp;
 };
 &nbsp;
 &nbsp;</pre></td></tr>
-</tbody></table></pre>
+</table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 07:51:09 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Sun Apr 16 2017 08:48:32 GMT+0000 (UTC)</div>
 </div>
-
-
-</body></html>
+</body>
+</html>
